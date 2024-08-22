@@ -1,0 +1,12 @@
+C:\Users\USUARIO\Documents\SecurityApp\Controller\bin\Debug\net8.0\Controller.deps.json
+C:\Users\USUARIO\Documents\SecurityApp\Controller\bin\Debug\net8.0\Controller.dll
+C:\Users\USUARIO\Documents\SecurityApp\Controller\bin\Debug\net8.0\Controller.pdb
+C:\Users\USUARIO\Documents\SecurityApp\Controller\obj\Debug\net8.0\Controller.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Documents\SecurityApp\Controller\obj\Debug\net8.0\Controller.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\Documents\SecurityApp\Controller\obj\Debug\net8.0\Controller.AssemblyInfoInputs.cache
+C:\Users\USUARIO\Documents\SecurityApp\Controller\obj\Debug\net8.0\Controller.AssemblyInfo.cs
+C:\Users\USUARIO\Documents\SecurityApp\Controller\obj\Debug\net8.0\Controller.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Documents\SecurityApp\Controller\obj\Debug\net8.0\Controller.dll
+C:\Users\USUARIO\Documents\SecurityApp\Controller\obj\Debug\net8.0\refint\Controller.dll
+C:\Users\USUARIO\Documents\SecurityApp\Controller\obj\Debug\net8.0\Controller.pdb
+C:\Users\USUARIO\Documents\SecurityApp\Controller\obj\Debug\net8.0\ref\Controller.dll

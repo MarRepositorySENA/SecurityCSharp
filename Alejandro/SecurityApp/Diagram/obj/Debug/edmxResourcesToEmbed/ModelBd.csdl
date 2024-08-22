@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelBd" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelBdContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="ModelBd.User" />
+    <EntitySet Name="Roles" EntityType="ModelBd.Role" />
+    <EntitySet Name="user_roles" EntityType="ModelBd.user_role" />
+    <EntitySet Name="views" EntityType="ModelBd.View" />
+    <EntitySet Name="role_views" EntityType="ModelBd.role_view" />
+    <EntitySet Name="Modules" EntityType="ModelBd.Module" />
+    <EntitySet Name="Persons" EntityType="ModelBd.Person" />
+    <AssociationSet Name="user_roleUser" Association="ModelBd.user_roleUser">
+      <End Role="user_role" EntitySet="user_roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="ViewModule" Association="ModelBd.ViewModule">
+      <End Role="View" EntitySet="views" />
+      <End Role="Module" EntitySet="Modules" />
+    </AssociationSet>
+    <AssociationSet Name="user_roleRole" Association="ModelBd.user_roleRole">
+      <End Role="user_role" EntitySet="user_roles" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="role_viewRole" Association="ModelBd.role_viewRole">
+      <End Role="role_view" EntitySet="role_views" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="role_viewView" Association="ModelBd.role_viewView">
+      <End Role="role_view" EntitySet="role_views" />
+      <End Role="View" EntitySet="views" />
+    </AssociationSet>
+    <AssociationSet Name="PersonUser" Association="ModelBd.PersonUser">
+      <End Role="Person" EntitySet="Persons" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="continents" EntityType="ModelBd.continent" />
+    <EntitySet Name="countrys" EntityType="ModelBd.country" />
+    <EntitySet Name="citys" EntityType="ModelBd.city" />
+    <AssociationSet Name="continentcountry" Association="ModelBd.continentcountry">
+      <End Role="continent" EntitySet="continents" />
+      <End Role="country" EntitySet="countrys" />
+    </AssociationSet>
+    <AssociationSet Name="countrycity" Association="ModelBd.countrycity">
+      <End Role="country" EntitySet="countrys" />
+      <End Role="city" EntitySet="citys" />
+    </AssociationSet>
+    <AssociationSet Name="cityPerson" Association="ModelBd.cityPerson">
+      <End Role="city" EntitySet="citys" />
+      <End Role="Person" EntitySet="Persons" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" />
+    <Property Name="password" Type="String" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" />
+    <Property Name="created_by" Type="DateTime" Nullable="false" />
+    <Property Name="deleted_at" Type="DateTime" Nullable="false" />
+    <Property Name="deleted_by" Type="Boolean" Nullable="false" />
+    <Property Name="update_at" Type="DateTime" Nullable="false" />
+    <Property Name="update_by" Type="DateTime" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="lstUser_role" Relationship="ModelBd.user_roleUser" FromRole="User" ToRole="user_role" />
+    <NavigationProperty Name="idPerson" Relationship="ModelBd.PersonUser" FromRole="User" ToRole="Person" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="description" Type="String" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" />
+    <Property Name="created_by" Type="DateTime" Nullable="false" />
+    <Property Name="deleted_at" Type="DateTime" Nullable="false" />
+    <Property Name="deleted_by" Type="DateTime" Nullable="false" />
+    <Property Name="update_at" Type="DateTime" Nullable="false" />
+    <Property Name="update_by" Type="DateTime" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="lstUser_role" Relationship="ModelBd.user_roleRole" FromRole="Role" ToRole="user_role" />
+    <NavigationProperty Name="lstRole_view" Relationship="ModelBd.role_viewRole" FromRole="Role" ToRole="role_view" />
+  </EntityType>
+  <EntityType Name="user_role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" />
+    <Property Name="created_by" Type="DateTime" Nullable="false" />
+    <Property Name="deleted_at" Type="DateTime" Nullable="false" />
+    <Property Name="deleted_by" Type="DateTime" Nullable="false" />
+    <Property Name="updated_at" Type="DateTime" Nullable="false" />
+    <Property Name="update_by" Type="DateTime" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="IdUser" Relationship="ModelBd.user_roleUser" FromRole="user_role" ToRole="User" />
+    <NavigationProperty Name="IdRole" Relationship="ModelBd.user_roleRole" FromRole="user_role" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="View">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="route" Type="String" Nullable="false" />
+    <Property Name="description" Type="String" Nullable="false" />
+    <Property Name="created_by" Type="String" Nullable="false" />
+    <Property Name="deleted_at" Type="String" Nullable="false" />
+    <Property Name="deleted_by" Type="String" Nullable="false" />
+    <Property Name="update_at" Type="String" Nullable="false" />
+    <Property Name="update_by" Type="String" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="IdModule" Relationship="ModelBd.ViewModule" FromRole="View" ToRole="Module" />
+    <NavigationProperty Name="lstRole_view" Relationship="ModelBd.role_viewView" FromRole="View" ToRole="role_view" />
+    <Property Name="moduleId" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="role_view">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" />
+    <Property Name="created_by" Type="DateTime" Nullable="false" />
+    <Property Name="deleted_at" Type="String" Nullable="false" />
+    <Property Name="deleted_by" Type="DateTime" Nullable="false" />
+    <Property Name="updated_at" Type="String" Nullable="false" />
+    <Property Name="updated_by" Type="DateTime" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="IdRole" Relationship="ModelBd.role_viewRole" FromRole="role_view" ToRole="Role" />
+    <NavigationProperty Name="IdView" Relationship="ModelBd.role_viewView" FromRole="role_view" ToRole="View" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="description" Type="String" Nullable="false" />
+    <Property Name="created_at" Type="String" Nullable="false" />
+    <Property Name="created_by" Type="String" Nullable="false" />
+    <Property Name="deleted_at" Type="String" Nullable="false" />
+    <Property Name="deleted_by" Type="String" Nullable="false" />
+    <Property Name="updated_at" Type="String" Nullable="false" />
+    <Property Name="update_by" Type="String" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="lstView" Relationship="ModelBd.ViewModule" FromRole="Module" ToRole="View" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="String" Nullable="false" />
+    <Property Name="last_name" Type="String" Nullable="false" />
+    <Property Name="email" Type="String" Nullable="false" />
+    <Property Name="gender" Type="String" Nullable="false" />
+    <Property Name="document" Type="String" Nullable="false" />
+    <Property Name="type_document" Type="String" Nullable="false" />
+    <Property Name="direction" Type="String" Nullable="false" />
+    <Property Name="birthday" Type="DateTime" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" />
+    <Property Name="created_by" Type="DateTime" Nullable="false" />
+    <Property Name="deleted_at" Type="DateTime" Nullable="false" />
+    <Property Name="deleted_by" Type="DateTime" Nullable="false" />
+    <Property Name="update_at" Type="DateTime" Nullable="false" />
+    <Property Name="update_by" Type="DateTime" Nullable="false" />
+    <Property Name="state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="setUser" Relationship="ModelBd.PersonUser" FromRole="Person" ToRole="User" />
+    <NavigationProperty Name="Idcity" Relationship="ModelBd.cityPerson" FromRole="Person" ToRole="city" />
+    <Property Name="cityId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="user_roleUser">
+    <End Type="ModelBd.user_role" Role="user_role" Multiplicity="*" />
+    <End Type="ModelBd.User" Role="User" Multiplicity="1" />
+  </Association>
+  <Association Name="ViewModule">
+    <End Type="ModelBd.View" Role="View" Multiplicity="*" />
+    <End Type="ModelBd.Module" Role="Module" Multiplicity="1" />
+  </Association>
+  <Association Name="user_roleRole">
+    <End Type="ModelBd.user_role" Role="user_role" Multiplicity="*" />
+    <End Type="ModelBd.Role" Role="Role" Multiplicity="1" />
+  </Association>
+  <Association Name="role_viewRole">
+    <End Type="ModelBd.role_view" Role="role_view" Multiplicity="*" />
+    <End Type="ModelBd.Role" Role="Role" Multiplicity="1" />
+  </Association>
+  <Association Name="role_viewView">
+    <End Type="ModelBd.role_view" Role="role_view" Multiplicity="*" />
+    <End Type="ModelBd.View" Role="View" Multiplicity="1" />
+  </Association>
+  <Association Name="PersonUser">
+    <End Type="ModelBd.Person" Role="Person" Multiplicity="1" />
+    <End Type="ModelBd.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="continent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="description" Type="String" Nullable="false" />
+    <Property Name="create_at" Type="String" Nullable="false" />
+    <Property Name="update_at" Type="String" Nullable="false" />
+    <Property Name="delete_at" Type="String" Nullable="false" />
+    <Property Name="state" Type="String" Nullable="false" />
+    <NavigationProperty Name="setcountry" Relationship="ModelBd.continentcountry" FromRole="continent" ToRole="country" />
+  </EntityType>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="description" Type="String" Nullable="false" />
+    <Property Name="create_at" Type="String" Nullable="false" />
+    <Property Name="update_at" Type="String" Nullable="false" />
+    <Property Name="delete_at" Type="String" Nullable="false" />
+    <Property Name="state" Type="String" Nullable="false" />
+    <NavigationProperty Name="Idcontinent" Relationship="ModelBd.continentcountry" FromRole="country" ToRole="continent" />
+    <Property Name="continentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="setcity" Relationship="ModelBd.countrycity" FromRole="country" ToRole="city" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="description" Type="String" Nullable="false" />
+    <Property Name="create_at" Type="String" Nullable="false" />
+    <Property Name="update_at" Type="String" Nullable="false" />
+    <Property Name="delete_at" Type="String" Nullable="false" />
+    <Property Name="state" Type="String" Nullable="false" />
+    <NavigationProperty Name="Idcountry" Relationship="ModelBd.countrycity" FromRole="city" ToRole="country" />
+    <Property Name="countryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="setPerson" Relationship="ModelBd.cityPerson" FromRole="city" ToRole="Person" />
+  </EntityType>
+  <Association Name="continentcountry">
+    <End Type="ModelBd.continent" Role="continent" Multiplicity="1" />
+    <End Type="ModelBd.country" Role="country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="continent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="country">
+        <PropertyRef Name="continentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="countrycity">
+    <End Type="ModelBd.country" Role="country" Multiplicity="1" />
+    <End Type="ModelBd.city" Role="city" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="city">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cityPerson">
+    <End Type="ModelBd.city" Role="city" Multiplicity="1" />
+    <End Type="ModelBd.Person" Role="Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="cityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\Maryury\\Otros\\Santiago\\security\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B2AD9F5-7506-46A8-8C5C-496A69011708}|Diagram\\Diagram.csproj|c:\\users\\jimmy\\onedrive\\escritorio\\maryury\\otros\\santiago\\security\\diagram\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{1B2AD9F5-7506-46A8-8C5C-496A69011708}|Diagram\\Diagram.csproj|solutionrelative:diagram\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 290,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\Maryury\\Otros\\Santiago\\security\\Diagram\\Model1.edmx",
+              "RelativeDocumentMoniker": "Diagram\\Model1.edmx",
+              "ToolTip": "C:\\Users\\jimmy\\OneDrive\\Escritorio\\Maryury\\Otros\\Santiago\\security\\Diagram\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "Diagram\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-08-18T09:20:30.319Z",
+              "EditorCaption": " [Diagram1]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

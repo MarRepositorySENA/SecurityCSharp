@@ -1,0 +1,6 @@
+@DIGITAL_PERSON_HostAddress = http://localhost:5054
+
+GET {{DIGITAL_PERSON_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
